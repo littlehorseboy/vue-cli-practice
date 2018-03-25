@@ -52,5 +52,11 @@ export default {
       }
     },
   },
+  watch: {
+    userInput: function (val) {
+      console.log(val);
+      console.log(typeof val);
+    },
+  },
 };
 </script>

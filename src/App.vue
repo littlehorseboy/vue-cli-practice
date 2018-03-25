@@ -4,6 +4,7 @@
     <router-link :to="{ name: 'Hello' }">Hello</router-link>
     <router-link :to="{ name: 'CtoF' }">CtoF</router-link>
     <router-link :to="{ name: 'LearnComponent' }">LearnComponent</router-link>
+    <router-link :to="{ name: 'Count' }">Count</router-link>
 
     <router-view/>
   </div>
