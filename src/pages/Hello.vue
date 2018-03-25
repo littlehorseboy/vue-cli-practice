@@ -11,6 +11,12 @@
     <input type="checkbox" v-model="toggle">
     {{ toggle }}
 
+    <div class="container">
+      <h2>count: <span>{{ count }}</span></h2>
+      <button @click="increase"> + </button>
+      <button @click="decrease"> - </button>
+    </div>
+
   </div>
 </template>
 
@@ -19,10 +25,19 @@ export default {
   name: 'hello',
   data() {
     return {
-      msg: '大標題',
+      msg: 'llll標題',
       hello: 'Hello 你好嗎? ',
       toggle: false,
+      count: 0,
     };
+  },
+  methods: {
+    increase() {
+      this.count += 1;
+    },
+    decrease() {
+      this.count -= 1;
+    },
   },
 };
 </script>
