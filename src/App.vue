@@ -5,6 +5,7 @@
     <router-link :to="{ name: 'CtoF' }">CtoF</router-link>
     <router-link :to="{ name: 'LearnComponent' }">LearnComponent</router-link>
     <router-link :to="{ name: 'Count' }">Count</router-link>
+    <router-link :to="{ name: 'Todo' }">Todo</router-link>
 
     <router-view/>
   </div>
