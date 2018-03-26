@@ -47,6 +47,15 @@ const getters = {
   getProducts: state => state.products,
   // 取得購物車總數量
   getShoppingCartTotal: state => state.shoppingCart.length,
+  // 取得推薦餐點
+  getRecommendedProducts: (state) => {
+    // 先取得庫存餐點表
+    const inventoryList = state.products.filter(p => p.inventory > 0);
+    // 取隨機數
+    const random = Math.round(Math.random() * (inventoryList.length - 1));
+    // 回傳隨機數的餐點
+    return inventoryList[random];
+  },
 };
 
 // actions 也是以 Object 形式建構
