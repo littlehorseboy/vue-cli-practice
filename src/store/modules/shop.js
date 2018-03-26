@@ -1,0 +1,79 @@
+/*
+  這邊可以改為用 types 物件取代 matutions_type.js (繼續用也可以)
+  然後在前面加上模組名稱作為前綴，用來避免與其他模組重複。
+  因為 action、mutation、和 getter 依然是註冊在全域的命名空間
+*/
+const types = {
+  ADD_CART: 'store/ADD_CART',
+  CANCEL_CART: 'store/CANCEL_CART',
+};
+
+// state 必須是 Object
+const state = {
+  // 餐點列表
+  products: [
+    {
+      title: 'The Perfect Sandwich, A Real NYC Classic',
+      image: 'http://www.w3schools.com/w3images/sandwich.jpg',
+      inventory: 5,
+      price: 155,
+    },
+    {
+      title: 'Let Me Tell You About This Steak',
+      image: 'http://www.w3schools.com/w3images/steak.jpg',
+      inventory: 1,
+      price: 1380,
+    },
+    {
+      title: 'Cherries, interrupted',
+      image: 'http://www.w3schools.com/w3images/cherries.jpg',
+      inventory: 2,
+      price: 499,
+    },
+    {
+      title: 'Once Again, Robust Wine and Vegetable Pasta',
+      image: 'http://www.w3schools.com/w3images/wine.jpg',
+      inventory: 3,
+      price: 790,
+    },
+  ],
+  // 購物車
+  shoppingCart: [],
+};
+
+// getters 整理到這邊直接返回 count 內容
+const getters = {
+  // 取得餐點列表
+  getProducts: state => state.products,
+  // 取得購物車總數量
+  getShoppingCartTotal: state => state.shoppingCart.length,
+};
+
+// actions 也是以 Object 形式建構
+const actions = {
+  addCart({ commit }, id) {
+    commit(types.ADD_CART, id);
+  },
+};
+
+// mutations 變動
+const mutations = {
+  // 新增
+  [types.ADD_CART](state, id) {
+    // ES6 array find 找到條件成立的內容
+    const product = state.product.find(item => item.title === id && item.inventory !== 0);
+    // 餐點庫存 -1
+    product.inventory -= 1;
+    state.shoppingCart.push({
+      title: product.title,
+      price: product.price,
+    });
+  },
+};
+
+export default {
+  state,
+  getters,
+  actions,
+  mutations,
+};

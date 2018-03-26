@@ -6,6 +6,7 @@ import CtoF from '@/pages/C2F';
 import LearnComponent from '@/pages/LearnComponent';
 import Count from '@/pages/Count';
 import Todo from '@/pages/Todo';
+import Shop from '@/pages/Shop';
 
 Vue.use(Router);
 
@@ -35,6 +36,11 @@ export default new Router({
       path: '/todo-list',
       name: 'Todo',
       component: Todo,
+    },
+    {
+      path: '/shop',
+      name: 'Shop',
+      component: Shop,
     },
     {
       path: '/*',

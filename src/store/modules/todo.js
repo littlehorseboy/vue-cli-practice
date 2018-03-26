@@ -10,7 +10,7 @@ const types = {
   UPDATE_TODO: 'todo/UPDATE_TODO',
 };
 
-// count state 必須是 Object
+// state 必須是 Object
 const state = {
   todos: [
     { key: 0, content: 'vue.js 2.0', done: true },
