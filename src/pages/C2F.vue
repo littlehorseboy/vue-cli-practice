@@ -11,7 +11,7 @@
     <div class="celsius">
       <span v-show="!isCelsius">攝氏: </span>
       <span v-show="isCelsius">華氏: </span>
-      <input type="number" v-model="userInput">
+      <input type="number" v-model.number="userInput">
     </div>
 
     <p>

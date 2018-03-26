@@ -7,10 +7,10 @@
       <h2 style="color: red;">actionCount: <span>{{ actionCount }}</span></h2>
 
       Set Number:
-      <input type="number" v-model="num">
+      <input type="number" v-model.number="num">
 
-      <button @click="actionIncrease(numToNumber)"> +{{ num }}</button>
-      <button @click="actionDecrease(numToNumber)"> -{{ num }}</button>
+      <button @click="actionIncrease(num ? num : 0)"> +{{ num }}</button>
+      <button @click="actionDecrease(num ? num : 0)"> -{{ num }}</button>
 
       <button @click="actionCountReset">歸零</button>
     </div>
@@ -36,9 +36,9 @@ export default {
       //  getCount return value 將會存在別名為 count 的 data 上
       actionCount: 'getCount',
     }),
-    numToNumber() { // v-model 在 input 改變時 會變成 string 一定得要自己轉型?
-      return Number(this.num);
-    },
+    // numToNumber() { // v-model 在 input 改變時 會變成 string 一定得要自己轉型?
+    //   return Number(this.num);
+    // },
   },
   methods: {
     // increase() {
