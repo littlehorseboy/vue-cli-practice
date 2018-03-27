@@ -58,7 +58,7 @@ export default {
     },
   },
   watch: {
-    num: function (val) {
+    num(val) {
       console.log(val);
       console.log(typeof val);
     },

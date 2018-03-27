@@ -1,5 +1,5 @@
 // get count & todo
-export const getCountandTodo = state => {
+export const getCountandTodo = (state) => {
   return {
     count: state.count.count,
     todo: state.todo.todo,

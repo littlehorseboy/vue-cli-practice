@@ -28,8 +28,8 @@ export default {
         // checked(done) 直接使用 checkbox 狀態
         checked: $event.target.checked,
       });
-    }
-  }
+    },
+  },
 };
 </script>
 

@@ -53,7 +53,7 @@ export default {
     },
   },
   watch: {
-    userInput: function (val) {
+    userInput(val) {
       console.log(val);
       console.log(typeof val);
     },

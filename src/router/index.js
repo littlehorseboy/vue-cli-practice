@@ -7,6 +7,8 @@ import LearnComponent from '@/pages/LearnComponent';
 import Count from '@/pages/Count';
 import Todo from '@/pages/Todo';
 import Shop from '@/pages/Shop';
+import Cart from '@/pages/Cart';
+import Open1999 from '@/pages/Open1999';
 
 Vue.use(Router);
 
@@ -41,6 +43,16 @@ export default new Router({
       path: '/shop',
       name: 'Shop',
       component: Shop,
+    },
+    {
+      path: '/cart',
+      name: 'Cart',
+      component: Cart,
+    },
+    {
+      path: '/open1999',
+      name: 'Open1999',
+      component: Open1999,
     },
     {
       path: '/*',

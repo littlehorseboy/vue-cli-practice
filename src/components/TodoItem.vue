@@ -29,7 +29,7 @@ import customCheckbox from './customCheckbox';
 
 export default {
   components: {
-   customCheckbox
+   customCheckbox,
   },
   props: {
     item: Object,
@@ -77,7 +77,7 @@ export default {
       e.target.value = this.item.title;
       this.updateMode = false;
     },
-  }
+  },
 };
 </script>
 

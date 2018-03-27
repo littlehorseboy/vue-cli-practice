@@ -45,7 +45,7 @@ const mutations = {
   [types.COUNT_RESET](state) {
     state.count = 0;
     console.log('newCOUNT_RESET - state?', state.count);
-  }
+  },
 };
 
 export default {

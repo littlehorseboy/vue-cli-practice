@@ -19,6 +19,6 @@ export default {
   name: 'HelloWorld',
   props: {
     list: Array,
-  }
+  },
 };
 </script>

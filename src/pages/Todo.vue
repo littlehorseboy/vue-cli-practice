@@ -88,7 +88,7 @@ export default {
   data() {
     return {
       newTodo: '',
-    }
+    };
   },
   computed: {
     // ...
@@ -104,7 +104,7 @@ export default {
       'toggleTodo',
       'deleteTodo',
     ]),
-    actionAddTodo () {
+    actionAddTodo() {
       // 方法一、使用
       // this.addTodo(this.newTodo);
 
@@ -114,6 +114,6 @@ export default {
 
       this.newTodo = '';
     },
-  }
+  },
 };
 </script>

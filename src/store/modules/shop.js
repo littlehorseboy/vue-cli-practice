@@ -45,8 +45,12 @@ const state = {
 const getters = {
   // 取得餐點列表
   getProducts: state => state.products,
+  // 取得購物車列表
+  getShoppingCart: state => state.shoppingCart,
   // 取得購物車總數量
   getShoppingCartTotal: state => state.shoppingCart.length,
+  // 取得購物車內容總金額
+  getCartPriceTotal: state => state.shoppingCart.reduce((a, b) => a + b.price, 0),
   // 取得推薦餐點
   getRecommendedProducts: (state) => {
     // 先取得庫存餐點表
@@ -63,6 +67,9 @@ const actions = {
   addCart({ commit }, id) {
     commit(types.ADD_CART, id);
   },
+  cancelCart({ commit }, id) {
+    commit(types.CANCEL_CART, id);
+  },
 };
 
 // mutations 變動
@@ -70,13 +77,22 @@ const mutations = {
   // 新增
   [types.ADD_CART](state, id) {
     // ES6 array find 找到條件成立的內容
-    const product = state.product.find(item => item.title === id && item.inventory !== 0);
+    const product = state.products.find(item => item.title === id && item.inventory !== 0);
     // 餐點庫存 -1
     product.inventory -= 1;
     state.shoppingCart.push({
       title: product.title,
       price: product.price,
     });
+  },
+  [types.CANCEL_CART](state, title) {
+    // 從購物車移除
+    // ES6 array findIndex 找到條件成立的物件, 所在陣列中的位子
+    const cartIndex = state.shoppingCart.findIndex(item => item.title === title);
+    state.shoppingCart.splice(cartIndex, 1);
+    // 餐點庫存 += 1
+    const product = state.products.find(item => item.title === title);
+    product.inventory += 1;
   },
 };
 

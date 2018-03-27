@@ -5,7 +5,8 @@
       <div class="w3-right">
         <router-link :to="{ name: 'Cart' }">
           <!-- 顯示購物車總產品數 -->
-          <span class="glyphicon glyphicon-shopping-cart" aria-hidden="true">{{ cartTotal }}</span>
+          <span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span>
+          <span class="badge badge-dark">{{ cartTotal }}</span>
         </router-link>
       </div>
       <div class="w3-center">Shop</div>
@@ -19,7 +20,7 @@
           使用 :class 加上 "w3-grayscale-max" class
         -->
         <div class="w3-quarter" :class="{ 'w3-grayscale-max': !item.inventory }" v-for="item in foodList" :key="item.key">
-          <a class="aaabbb" :href="item.image"><img :src="item.image" style="width: 100%;"></a>
+          <img :src="item.image" style="width: 100%;">
           <h3>{{ item.title }}</h3>
           <h4>{{ item.price }}</h4>
           <!--
@@ -67,7 +68,7 @@ export default {
 <style scoped>
   @import url("https://www.w3schools.com/w3css/4/w3.css");
 
-  a.aaabbb:hover > img {
+  img:hover {
     transform: scale(1.2);
   }
 </style>
