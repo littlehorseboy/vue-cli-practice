@@ -1,8 +1,10 @@
+import Vue from 'vue';
 import * as types from './mutations_type';
 
 export const state = {
   loading: false,
   token: '',
+  lang: 'en',
 };
 
 export const actions = {
@@ -31,6 +33,10 @@ export const actions = {
       }, 1500);
     });
   },
+
+  setLanguage({ commit }, lang) {
+    commit(types.LANGUAGE, lang);
+  },
 };
 
 export const mutations = {
@@ -40,5 +46,11 @@ export const mutations = {
 
   [types.TOKEN](state, token) {
     state.token = token;
+  },
+
+  [types.LANGUAGE](state, setlang) {
+    state.lang = setlang;
+    // 設定 Vue config 將會改變 i18n 使用的語言包而更改語系!
+    Vue.config.lang = state.lang;
   },
 };

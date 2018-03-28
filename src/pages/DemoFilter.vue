@@ -14,7 +14,37 @@
         <input v-model="demoLowerCase">
         <h3>{{ demoLowerCase | lowercase }}</h3> <!-- 過濾貨幣 -->
       </div>
+
+      <div class="col-md-4">
+        <h2>Letter Grade:</h2>
+        <input type="number" v-model.number="demoScore">
+        <h3>{{ demoScore | letterGrade }}
+          <small>GPA: ( {{ demoScore | gpa }} )</small> <!-- 過濾 GPA -->
+        </h3> <!-- 過濾 Letter Grade -->
+      </div>
     </div>
+
+    <hr>
+
+    <h3>學期分數: </h3>
+    <table class="table">
+      <thead>
+        <tr>
+          <th>name</th>
+          <th>Letter Grade</th>
+          <th>score</th>
+          <th>GPA</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr v-for="(item, index) in scoreList" :key="index">
+          <td>{{ item.name }}</td>
+          <td>{{ item.score | letterGrade }}</td>
+          <td>{{ item.score }}</td>
+          <td>{{ item.score | gpa }}</td>
+        </tr>
+      </tbody>
+    </table>
   </div>
 </template>
 
