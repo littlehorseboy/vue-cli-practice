@@ -41,6 +41,9 @@
           <li class="nav-item">
             <router-link :to="{ name: 'Login' }" class="nav-link">Login</router-link>
           </li>
+          <li class="nav-item">
+            <router-link :to="{ name: 'DemoFilter' }" class="nav-link">DemoFilter</router-link>
+          </li>
         </ul>
         <form class="form-inline my-2 my-lg-0">
           <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search">
@@ -56,6 +59,16 @@
     <router-link :to="{ name: 'Todo' }">Todo</router-link> -->
 
     <router-view/>
+
+    <!--
+      multiples views
+      多重顯示, 在 router-view 設定 name 之後可以嵌入特定 page
+      沒有設定 name 的 view 使用 "default" 設定
+    -->
+    <div class="row">
+      <router-view name="viewLeft" class="col-md-6"></router-view>
+      <router-view name="viewRight" class="col-md-6"></router-view>
+    </div>
   </div>
 </template>
 

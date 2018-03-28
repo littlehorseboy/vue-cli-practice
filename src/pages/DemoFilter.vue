@@ -1,0 +1,44 @@
+<template>
+  <div class="container">
+    <h1>Vue Filter</h1>
+    <hr>
+    <div class="row">
+      <div class="col-md-4">
+        <h2>currency:</h2>
+        <input type="number" v-model.number="demoCurrency">
+        <h3>{{ demoCurrency | currency }}</h3> <!-- 過濾貨幣 -->
+      </div>
+
+      <div class="col-md-4">
+        <h2>lowercase:</h2>
+        <input v-model="demoLowerCase">
+        <h3>{{ demoLowerCase | lowercase }}</h3> <!-- 過濾貨幣 -->
+      </div>
+    </div>
+  </div>
+</template>
+
+<script>
+export default {
+  name: 'hello',
+  data() {
+    return {
+      demoCurrency: 1000,
+      demoLowerCase: 'LLLLLOWER CASE',
+      demoScore: 99,
+      scoreList: [
+        { name: 'Jacky', score: 100 },
+        { name: 'Momo', score: 99 },
+        { name: 'Jasper', score: 89 },
+        { name: 'Eason', score: 80 },
+        { name: 'Mars', score: 79 },
+        { name: 'Mike', score: 70 },
+        { name: 'Ben', score: 69 },
+        { name: 'Aaron', score: 60 },
+        { name: 'Mary', score: 59 },
+        { name: 'Otis', score: 55 },
+      ],
+    };
+  },
+};
+</script>

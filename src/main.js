@@ -5,6 +5,11 @@ import App from './App';
 import router from './router';
 import store from './store';
 
+// directive
+import './directive/custom-directive';
+// filter
+import './filters/custom-filter';
+
 Vue.config.productionTip = false;
 
 /* eslint-disable no-new */

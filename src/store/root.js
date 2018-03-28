@@ -1,8 +1,8 @@
 import * as types from './mutations_type';
-import { resolve } from 'dns';
 
 export const state = {
   loading: false,
+  token: '',
 };
 
 export const actions = {
@@ -21,6 +21,7 @@ export const actions = {
       setTimeout(() => {
         if (email === 'lll@lll.lll' && password === '123') {
           console.log('2. Promise resolve');
+          commit(types.TOKEN, '3345678');
           commit(types.LOADING, false);
           resolve();
         } else {
@@ -35,5 +36,9 @@ export const actions = {
 export const mutations = {
   [types.LOADING](state, isLoading) {
     state.loading = isLoading;
+  },
+
+  [types.TOKEN](state, token) {
+    state.token = token;
   },
 };

@@ -4,29 +4,60 @@
       <!-- <img class="mb-4" src="https://getbootstrap.com/assets/brand/bootstrap-solid.svg" alt="" width="72" height="72"> -->
       <h1 class="h3 mb-3 font-weight-normal">Please sign in</h1>
       <label for="inputEmail" class="sr-only">Email address</label>
-      <input type="email" id="inputEmail" class="form-control" placeholder="Email address" required="" autofocus="">
+      <input type="email" id="inputEmail" class="form-control" placeholder="Email address"
+        required="" autofocus="" v-model="email">
       <label for="inputPassword" class="sr-only">Password</label>
-      <input type="password" id="inputPassword" class="form-control" placeholder="Password" required="">
+      <!--
+        2. 在 password input 上面使用 v-toggle-password 帶入 checkbox 的 value
+      -->
+      <input type="password" id="inputPassword" class="form-control" placeholder="Password"
+        required="" @keyup.enter="login" v-model="password" v-toggle-password="togglePassword">
+      <!-- 1. checkbox 雙向綁定[布林] -->
+      <div class="checkbox mb-3">
+        <label>
+          <input type="checkbox" v-model="togglePassword"> 顯示密碼
+        </label>
+      </div>
       <div class="checkbox mb-3">
         <label>
           <input type="checkbox" value="remember-me"> Remember me
         </label>
       </div>
-      <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
+      <button class="btn btn-lg btn-primary btn-block" type="submit" @click="login">Sign in</button>
       <p class="mt-5 mb-3 text-muted">© 2017-2018</p>
     </form>
+
+    <!-- <div v-test:abccc="aaaaaaaa"></div> -->
   </div>
 </template>
 
 <script>
+import { mapGetters, mapActions } from 'vuex';
+
 export default {
   name: 'hello',
   data() {
     return {
-      msg: 'llll標題',
-      hello: 'Hello 你好嗎? ',
-      toggle: false,
+      email: 'lll@lll.lll',
+      password: '',
+      togglePassword: false,
     };
+  },
+  methods: {
+    login() {
+      this.$store.dispatch('actionLogin', {
+        email: this.email,
+        password: this.password,
+      }).then(() => { // 接收 resolve
+        console.log('3. get Promise resolve');
+        setTimeout(() => {
+          // 使用 $router.push 轉跳到 hello Page
+          this.$router.push('/hello');
+        }, 300);
+      }).catch(() => { // 接收 reject
+        console.log('error get Promise reject!');
+      });
+    },
   },
 };
 </script>

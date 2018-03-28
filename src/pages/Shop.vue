@@ -46,6 +46,9 @@
         </div><!-- end 產品列表 -->
       </div>
     </div>
+
+    <!-- nested-routes -->
+    <router-view class="nested-routes"></router-view>
   </div>
 </template>
 
