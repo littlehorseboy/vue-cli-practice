@@ -19,7 +19,7 @@
               -->
               <select id="searchRegion" class="form-control" v-model="searchRegion">
                 <option value="all">全部</option>
-                <option v-for="option in regionOption" :value="option" :key="option">
+                <option v-for="(option, index) in regionOption" :value="option" :key="index">
                   {{ option }}
                 </option>
               </select>
@@ -45,7 +45,7 @@
     </nav>
 
     <!-- IF -->
-    <div class="alert alert-info" role="alert" v-if="opendata.length === 0">
+    <div v-if="opendata.length === 0" class="alert alert-info" role="alert">
       很抱歉! 找不到您要的資訊
     </div>
     <!-- else -->
@@ -55,13 +55,13 @@
       </div>
       <!-- card -->
       <div class="row">
-        <div class="col-md-4 col-sm-6" v-for="item in opendata" :key="item">
-          <div class="card" style="width: 18rem;">
+        <div class="col-md-4 col-sm-6" v-for="(item, index) in opendata" :key="index">
+          <div class="card">
             <div class="card-body">
               <!-- <h5 class="card-title">Card title</h5> -->
               <p class="card-text">
                 <span class="badge badge-warning">{{ item.ZipName_ }}</span>
-                <span class="badge badge-light">{{ item.InformDesc_ }}</span>
+                <span class="badge badge-secondary">{{ item.InformDesc_ }}</span>
                 <span class="badge badge-info">{{ item.UnitName_ }}</span>
               </p>
               <div>

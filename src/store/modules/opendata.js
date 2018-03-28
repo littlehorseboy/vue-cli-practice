@@ -3,14 +3,42 @@ import * as rootypes from '../mutations_type';
 
 const types = {
   OPEN_1999: 'open/OPEN_1999',
+  OPENDATA_SEARCH_REGION: 'open/OPENDATA_SEARCH_REGION',
+  OPENDATA_SEARCH_KEYWORD: 'open/OPENDATA_SEARCH_KEYWORD',
 };
 
 const state = {
   opendata: [],
+  search: {
+    region: 'all',
+    keyword: '',
+  },
 };
 
 const getters = {
-  getOpen1999: state => state.opendata,
+  getOpen1999: (state) => {
+    let _opendata = state.opendata;
+
+    if (state.search.region !== 'all') {
+      _opendata = _opendata.filter(item => (item.ZipName_ === state.search.region));
+    }
+    if (state.search.keyword !== '') {
+      _opendata = _opendata.filter(item => (JSON.stringify(item).indexOf(state.search.keyword) !== -1));
+    }
+
+    return _opendata;
+  },
+  getRegionOption: (state) => {
+    let regionOption = [];
+    state.opendata.forEach((obj) => {
+      if (obj.ZipName_) {
+        regionOption.push(obj.ZipName_);
+      }
+    });
+
+    const unique = regionOption.filter((value, index, array) => array.indexOf(value) === index);
+    return unique;
+  },
 };
 
 // actions 也是以 Object 形式建構
@@ -38,12 +66,22 @@ const actions = {
           console.error('There was a problem with the request.');
           commit(rootypes.LOADING, false);
         }
-      } else {
-        commit(rootypes.LOADING, false);
       }
+      // else {
+      //   commit(rootypes.LOADING, false);
+      // }
     };
     httpRequest.open('GET', 'http://work1999.kcg.gov.tw/open1999/ServiceRequestsQuery.asmx/ServiceRequestsQuery');
     httpRequest.send();
+  },
+
+  opendataSearchRegion({ commit }, region) {
+    console.log('opendataSearchRegion', region);
+    commit(types.OPENDATA_SEARCH_REGION, region);
+  },
+
+  opendataSearchKeyword({ commit }, keyword) {
+    commit(types.OPENDATA_SEARCH_KEYWORD, keyword);
   },
 };
 
@@ -52,6 +90,14 @@ const mutations = {
   // 新增
   [types.OPEN_1999](state, data) {
     state.opendata = data;
+  },
+
+  [types.OPENDATA_SEARCH_REGION] (state, region) {
+    state.search.region = region;
+  },
+
+  [types.OPENDATA_SEARCH_KEYWORD](state, keyword) {
+    state.search.keyword = keyword;
   },
 };
 

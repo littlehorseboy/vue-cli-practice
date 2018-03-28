@@ -38,6 +38,9 @@
           <li class="nav-item">
             <router-link :to="{ name: 'Open1999' }" class="nav-link">Open1999</router-link>
           </li>
+          <li class="nav-item">
+            <router-link :to="{ name: 'Login' }" class="nav-link">Login</router-link>
+          </li>
         </ul>
         <form class="form-inline my-2 my-lg-0">
           <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search">
