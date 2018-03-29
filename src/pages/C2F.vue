@@ -37,7 +37,7 @@ export default {
       return ((this.userInput * 9) / 5) + 32;
     },
     celsius() {
-      return ((this.userInput - 32) * 5) / 9;
+      return (((this.userInput - 32) * 5) / 9).toFixed(5);
     },
     toggleTemperature() {
       return this.isCelsius ? '攝氏 轉換 華氏' : '華氏 轉換 攝氏';

@@ -10,34 +10,34 @@
             v-model="lang"
             :true-value="'tw'"
             :false-value="'en'"
-            @change="setLanguage( lang )"
+            @change="setLanguage(lang)"
             id="slideThree"/>
           <label for="slideThree"></label>
         </div>
       </div>
 
-      <h1 class="h3 mb-3 font-weight-normal">Please sign in</h1>
+      <h1 class="h3 mb-3 font-weight-normal">{{ $t("Please_sign_in") }}</h1>
       <label for="inputEmail" class="sr-only">Email address</label>
-      <input type="email" id="inputEmail" class="form-control" placeholder="Email address"
+      <input type="email" id="inputEmail" class="form-control" :placeholder="$t('Email_address')"
         required="" autofocus="" v-model="email">
       <label for="inputPassword" class="sr-only">Password</label>
       <!--
         2. 在 password input 上面使用 v-toggle-password 帶入 checkbox 的 value
       -->
-      <input type="password" id="inputPassword" class="form-control" placeholder="Password"
+      <input type="password" id="inputPassword" class="form-control" :placeholder="$t('Password')"
         required="" @keyup.enter="login" v-model="password" v-toggle-password="togglePassword">
       <!-- 1. checkbox 雙向綁定[布林] -->
       <div class="checkbox mb-3">
         <label>
-          <input type="checkbox" v-model="togglePassword"> 顯示密碼
+          <input type="checkbox" v-model="togglePassword"> {{ $t("Show_password") }}
         </label>
       </div>
       <div class="checkbox mb-3">
         <label>
-          <input type="checkbox" value="remember-me"> Remember me
+          <input type="checkbox" value="remember-me"> {{ $t("Remember_me") }}
         </label>
       </div>
-      <button class="btn btn-lg btn-primary btn-block" type="submit" @click="login">Sign in</button>
+      <button class="btn btn-lg btn-primary btn-block" type="submit" @click="login">{{ $t("Sign_in") }}</button>
       <p class="mt-5 mb-3 text-muted">© 2017-2018</p>
     </form>
 
@@ -72,6 +72,14 @@ export default {
       }).catch(() => { // 接收 reject
         console.log('error get Promise reject!');
       });
+    },
+    ...mapActions([
+      'setLanguage',
+    ]),
+  },
+  watch: {
+    lang(val) {
+      console.log(`lang ${val}`);
     },
   },
 };

@@ -18,7 +18,7 @@ export default {
   name: 'hello',
   data() {
     return {
-      msg: 'llll標題',
+      msg: '標題',
       hello: 'Hello 你好嗎? ',
       toggle: false,
     };
