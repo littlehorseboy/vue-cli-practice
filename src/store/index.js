@@ -2,7 +2,7 @@ import Vue from 'vue';
 import Vuex from 'vuex';
 // root
 import * as getters from './getters';
-import {state, actions, mutations} from './root';
+import { state, actions, mutations } from './root';
 // modules
 import count from './modules/count';
 import todo from './modules/todo';
