@@ -1,6 +1,7 @@
-import Vue from 'vue';
 import * as types from './mutations_type';
 import i18n from '../i18n/lang';
+
+/* eslint no-shadow: ["error", { "allow": ["state"] }] */
 
 export const state = {
   loading: false,

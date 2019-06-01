@@ -1,3 +1,5 @@
+/* eslint no-shadow: ["error", { "allow": ["state"] }] */
+
 /*
   這邊可以改為用 types 物件取代 matutions_type.js (繼續用也可以)
   然後在前面加上模組名稱作為前綴，用來避免與其他模組重複。
@@ -24,14 +26,10 @@ const state = {
 // getters 整理到這邊直接返回 count 內容
 const getters = {
   getDone(state) {
-    return state.todos.filter((item) => {
-      return item.done;
-    });
+    return state.todos.filter(item => item.done);
   },
   getTodo(state) {
-    return state.todos.filter((item) => {
-      return !item.done;
-    });
+    return state.todos.filter(item => !item.done);
   },
 };
 
@@ -69,7 +67,8 @@ const mutations = {
 
   // 改變狀態
   [types.TOGGLE_TODO](state, obj) {
-    for (let i in state.todos) {
+    // eslint-disable-next-line guard-for-in, no-restricted-syntax
+    for (const i in state.todos) {
       const item = state.todos[i];
       if (item.key === obj.key) {
         item.done = obj.checked;
@@ -81,7 +80,8 @@ const mutations = {
 
   // 刪除
   [types.DELETE_TODO](state, key) {
-    for (let i in state.todos) {
+    // eslint-disable-next-line guard-for-in, no-restricted-syntax
+    for (const i in state.todos) {
       const item = state.todos[i];
       if (item.key === key) {
         console.log('DELETE_TODO:', item.content, ', index?', i);
@@ -92,7 +92,8 @@ const mutations = {
     }
   },
   [types.UPDATE_TODO](state, obj) {
-    for (let i in state.todos) {
+    // eslint-disable-next-line guard-for-in, no-restricted-syntax
+    for (const i in state.todos) {
       const item = state.todos[i];
       if (item.key === obj.key) {
         console.log('UPDATE_TODO:', item.content, ' to →', obj.update);

@@ -1,3 +1,5 @@
+/* eslint no-shadow: ["error", { "allow": ["state"] }] */
+
 /*
   這邊可以改為用 types 物件取代 matutions_type.js (繼續用也可以)
   然後在前面加上模組名稱作為前綴，用來避免與其他模組重複。
