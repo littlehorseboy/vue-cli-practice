@@ -40,7 +40,9 @@
             <div class="recommend-info">
               <h2>{{ recommend.title }}</h2>
               <hr>
-              <h3>Just some random text, lorem ipsum text praesent tincidunt ipsum lipsum. Just some random text, Once again, some random text to lorem lorem lorem lorem ipsum text praesent tincidunt ipsum lipsum.
+              <h3>Just some random text, lorem ipsum text praesent tincidunt ipsum lipsum.
+Just some random text, Once again,
+some random text to lorem lorem lorem lorem ipsum text praesent tincidunt ipsum lipsum.
               </h3>
               <h2>${{ recommend.price }}</h2>
               <button class="btn btn-danger" @click="addCart(recommend.title)">

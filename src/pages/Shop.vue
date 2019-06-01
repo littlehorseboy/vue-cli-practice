@@ -19,7 +19,9 @@
           當產品庫存為: 0
           使用 :class 加上 "w3-grayscale-max" class
         -->
-        <div class="w3-quarter" :class="{ 'w3-grayscale-max': !item.inventory }" v-for="item in foodList" :key="item.key">
+        <div class="w3-quarter" :class="{ 'w3-grayscale-max': !item.inventory }"
+          v-for="item in foodList" :key="item.key"
+        >
           <img :src="item.image" style="width: 100%;">
           <h3>{{ item.title }}</h3>
           <h4>{{ item.price }}</h4>
