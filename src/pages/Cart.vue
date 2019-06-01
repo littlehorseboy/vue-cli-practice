@@ -3,8 +3,10 @@
     <div class="container">
       <nav class="navbar navbar-expand-md navbar-dark bg-dark">
         <router-link :to="{ name: 'Cart' }" class="navbar-brand">Shopping Cart</router-link>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault"
-          aria-expanded="false" aria-label="Toggle navigation">
+        <button class="navbar-toggler" type="button" data-toggle="collapse"
+          data-target="#navbarsExampleDefault"
+          aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation"
+        >
           <span class="navbar-toggler-icon"></span>
         </button>
 

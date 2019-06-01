@@ -2,8 +2,10 @@
   <div class="container">
     <nav class="navbar navbar-expand-md navbar-dark bg-dark">
       <router-link :to="{ name: 'Cart' }" class="navbar-brand">Open1999</router-link>
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault"
-        aria-expanded="false" aria-label="Toggle navigation">
+      <button class="navbar-toggler" type="button"
+        data-toggle="collapse" data-target="#navbarsExampleDefault"
+        aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation"
+      >
         <span class="navbar-toggler-icon"></span>
       </button>
 
@@ -25,7 +27,8 @@
               </select>
 
               <div class="input-group">
-                <input class="form-control" placeholder="Search" v-model="searchKeyword" @keyup.enter="handleWorkSearch">
+                <input class="form-control" placeholder="Search"
+                  v-model="searchKeyword" @keyup.enter="handleWorkSearch">
                 <div class="input-group-append">
                   <button class="btn btn-outline-secondary" @click="handleWorkSearch">
                     <i class="glyphicon glyphicon-search"></i>

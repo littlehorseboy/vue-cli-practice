@@ -10,8 +10,8 @@ Vue.use(VueI18n);
 const i18n = new VueI18n({
   locale: 'tw',
   messages: {
-    tw: tw,
-    en: en,
+    tw,
+    en,
   },
 });
 

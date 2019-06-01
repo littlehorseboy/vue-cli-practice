@@ -1,3 +1,5 @@
+/* eslint no-shadow: ["error", { "allow": ["state"] }] */
+
 // root types
 import * as rootypes from '../mutations_type';
 
@@ -17,21 +19,25 @@ const state = {
 
 const getters = {
   getOpen1999: (state) => {
-    let _opendata = state.opendata;
+    let opendata = state.opendata;
 
     if (state.search.region !== 'all') {
-      _opendata = _opendata.filter(item => (item.ZipName_ === state.search.region));
+      // eslint-disable-next-line no-underscore-dangle
+      opendata = opendata.filter(item => (item.ZipName_ === state.search.region));
     }
     if (state.search.keyword !== '') {
-      _opendata = _opendata.filter(item => (JSON.stringify(item).indexOf(state.search.keyword) !== -1));
+      opendata = opendata
+        .filter(item => (JSON.stringify(item).indexOf(state.search.keyword) !== -1));
     }
 
-    return _opendata;
+    return opendata;
   },
   getRegionOption: (state) => {
-    let regionOption = [];
+    const regionOption = [];
     state.opendata.forEach((obj) => {
+      // eslint-disable-next-line no-underscore-dangle
       if (obj.ZipName_) {
+        // eslint-disable-next-line no-underscore-dangle
         regionOption.push(obj.ZipName_);
       }
     });
@@ -73,6 +79,8 @@ const actions = {
     };
     httpRequest.open('GET', 'http://work1999.kcg.gov.tw/open1999/ServiceRequestsQuery.asmx/ServiceRequestsQuery');
     httpRequest.send();
+
+    return false;
   },
 
   opendataSearchRegion({ commit }, region) {
@@ -92,7 +100,7 @@ const mutations = {
     state.opendata = data;
   },
 
-  [types.OPENDATA_SEARCH_REGION] (state, region) {
+  [types.OPENDATA_SEARCH_REGION](state, region) {
     state.search.region = region;
   },
 

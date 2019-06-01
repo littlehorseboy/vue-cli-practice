@@ -5,8 +5,10 @@
 
     <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
       <router-link :to="{ name: 'Hello' }" class="navbar-brand">Hello</router-link>
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault"
-        aria-expanded="false" aria-label="Toggle navigation">
+      <button class="navbar-toggler" type="button"
+        data-toggle="collapse" data-target="#navbarsExampleDefault"
+        aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation"
+      >
         <span class="navbar-toggler-icon"></span>
       </button>
 
@@ -21,7 +23,9 @@
             <router-link :to="{ name: 'CtoF' }" class="nav-link">CtoF</router-link>
           </li>
           <li class="nav-item">
-            <router-link :to="{ name: 'LearnComponent' }" class="nav-link">LearnComponent</router-link>
+            <router-link :to="{ name: 'LearnComponent' }" class="nav-link">
+              LearnComponent
+            </router-link>
           </li>
           <li class="nav-item">
             <router-link :to="{ name: 'Count' }" class="nav-link">Count</router-link>
@@ -105,6 +109,8 @@ export default {
     };
     httpRequest.open('GET', '/data/youbike');
     httpRequest.send();
+
+    return false;
   },
   computed: mapGetters({
     // 取得 Loading state

@@ -10,7 +10,8 @@
         在 Vue 裡面要捕捉 "按鍵事件" 可以使用 @keyup.[鍵位碼]
         加入 @keyup.enter(修飾) 也等於 @keyup.13
       -->
-      <input class="form-control" placeholder="add Todo..." v-model="newTodo" @keyup.enter="actionAddTodo">
+      <input class="form-control" placeholder="add Todo..."
+        v-model="newTodo" @keyup.enter="actionAddTodo" />
       <button class="btn btn-success" @click="actionAddTodo">
         <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
       </button>

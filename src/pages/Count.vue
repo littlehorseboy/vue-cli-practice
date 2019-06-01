@@ -54,7 +54,7 @@ export default {
     ]),
     // 其他 method call action 的方法
     callAction() {
-      this.actionIncrease;
+      // this.actionIncrease();
     },
   },
   watch: {

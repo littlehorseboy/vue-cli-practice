@@ -37,7 +37,9 @@
           <input type="checkbox" value="remember-me"> {{ $t("Remember_me") }}
         </label>
       </div>
-      <button class="btn btn-lg btn-primary btn-block" type="submit" @click="login">{{ $t("Sign_in") }}</button>
+      <button class="btn btn-lg btn-primary btn-block" type="submit" @click="login">
+        {{ $t("Sign_in") }}
+      </button>
       <p class="mt-5 mb-3 text-muted">© 2017-2018</p>
     </form>
 
@@ -46,7 +48,7 @@
 </template>
 
 <script>
-import { mapGetters, mapActions } from 'vuex';
+import { mapActions } from 'vuex';
 
 export default {
   name: 'hello',
